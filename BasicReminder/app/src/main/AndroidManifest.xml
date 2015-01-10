@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.basic.reminder" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/reminder_basic_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".comp.HomeActivity"
+            android:label="@string/reminder" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".comp.SetAlarmActivity"
+            android:parentActivityName=".comp.HomeActivity"
+            android:label="@string/set_alarm_activity"
+            />
+        <service android:name=".comp.AlarmMusicService" />
+
+        <receiver android:name=".comp.AlarmReceiver"/>
+        <receiver android:name=".comp.AudioControlReceiver">
+            <intent-filter>
+                <action android:name="action_audio_control"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
