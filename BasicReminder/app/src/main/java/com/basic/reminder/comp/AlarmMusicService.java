@@ -82,7 +82,7 @@ public class AlarmMusicService extends Service {
         AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 50, 0);
 
-        mPlayer = MediaPlayer.create(this, R.raw.berzerk);
+        mPlayer = MediaPlayer.create(this, R.raw.reminder_tone);
 
         try {
 
@@ -92,6 +92,7 @@ public class AlarmMusicService extends Service {
 
             float volume = (float) (1 - (Math.log(100 - 80) / Math.log(100)));
             mPlayer.setVolume(volume, volume);
+            mPlayer.setLooping(true);
             mPlayer.start();
 
         } catch (Exception e) {
